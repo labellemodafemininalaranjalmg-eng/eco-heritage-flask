@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.nome }} | Rastreabilidade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container product-page">
+        <a href="/">← Voltar para a loja</a>
+        <h1>{{ product.nome }}</h1>
+        <p class="description">{{ product.descricao }}</p>
+        
+        <div class="traceability-card">
+            <h2>Relatório de Transparência</h2>
+            <div class="info-row">
+                <strong>Origem da Matéria-Prima:</strong> {{ product.origem }}
+            </div>
+            <div class="info-row">
+                <strong>Composição:</strong> {{ product.material }}
+            </div>
+            <div class="info-row">
+                <strong>Mão de Obra:</strong> {{ product.artesao }}
+            </div>
+        </div>
+        <p class="price">{{ product.preco }}</p>
+    </div>
+</body>
+</html>

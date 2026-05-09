@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco-Heritage — Elegância Atemporal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --clay:    #C4956A;
+    --earth:   #8B6347;
+    --moss:    #5C6B4A;
+    --stone:   #A49B8F;
+    --cream:   #F5F0E8;
+    --bark:    #3D2B1F;
+    --warm:    #E8DDD0;
+    --linen:   #EDE8DF;
+    --fog:     #D6CFC4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--bark);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--fog);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--bark);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--earth); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--moss); }
+  .nav-badge {
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--moss); color: var(--cream);
+    padding: 0.4rem 1rem; border-radius: 2px;
+    text-decoration: none;
+  }
+
+  /* ── HERO ────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 32px; height: 0.5px; background: var(--clay);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--bark); margin-bottom: 1rem;
+  }
+  .hero-title em { font-style: italic; color: var(--earth); }
+  .hero-subtitle {
+    font-size: 1rem; color: var(--stone); line-height: 1.8;
+    max-width: 420px; margin-bottom: 3rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 1rem;
+    background: var(--bark); color: var(--cream);
+    padding: 1rem 2rem; text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: background 0.25s;
+    align-self: flex-start;
+  }
+  .hero-cta:hover { background: var(--earth); }
+  .hero-cta-arrow { font-size: 1.1rem; }
+
+  .hero-visual {
+    background: var(--warm);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-fabric {
+    width: 100%; height: 100%;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(138,99,71,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 75% 25%, rgba(92,107,74,0.15) 0%, transparent 55%),
+      linear-gradient(160deg, #EDE8DF 0%, #D6CFC4 50%, #C4B8AC 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-tag {
+    background: rgba(245,240,232,0.9);
+    border: 0.5px solid var(--fog);
+    padding: 1.5rem 2rem;
+    max-width: 260px; text-align: center;
+    backdrop-filter: blur(4px);
+  }
+  .hero-tag-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-tag-desc {
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--stone);
+  }
+  .qr-block {
+    margin-top: 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    border-top: 0.5px solid var(--fog); padding-top: 1rem;
+  }
+  .qr-icon {
+    width: 36px; height: 36px; background: var(--bark);
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; gap: 2px; padding: 5px;
+    flex-shrink: 0;
+  }
+  .qr-cell { background: var(--cream); }
+  .qr-cell.dark { background: var(--bark); }
+  .qr-text { font-size: 0.68rem; color: var(--stone); line-height: 1.4; text-align: left; }
+
+  /* ── SECTION COMMON ──────────────────────────── */
+  section { padding: 6rem 5rem; }
+  .section-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-eyebrow::before {
+    content: ''; width: 32px; height: 0.5px; background: var(--clay);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--earth); }
+
+  /* ── ATRIBUTOS ───────────────────────────────── */
+  #atributos { background: var(--bark); color: var(--cream); }
+  #atributos .section-eyebrow { color: var(--clay); }
+  #atributos .section-eyebrow::before { background: var(--clay); }
+  #atributos .section-title { color: var(--cream); }
+  #atributos .section-title em { color: var(--clay); }
+
+  .attr-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; margin-top: 3.5rem;
+    border: 0.5px solid rgba(255,255,255,0.1);
+  }
+  .attr-card {
+    padding: 2rem 1.5rem;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    transition: background 0.3s;
+  }
+  .attr-card:hover { background: rgba(255,255,255,0.05); }
+  .attr-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem; color: var(--clay); opacity: 0.5;
+    line-height: 1; margin-bottom: 1rem;
+  }
+  .attr-label {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 0.5rem;
+  }
+  .attr-value {
+    font-size: 0.95rem; color: rgba(245,240,232,0.85); line-height: 1.6;
+  }
+
+  /* ── POSICIONAMENTO ──────────────────────────── */
+  #posicionamento { background: var(--linen); }
+  .pos-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
+
+  .spectrum {
+    margin: 2rem 0;
+    position: relative;
+  }
+  .spectrum-bar {
+    height: 4px;
+    background: linear-gradient(to right, var(--fog), var(--clay), var(--bark));
+    border-radius: 2px;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  .spectrum-marker {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bark); border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px var(--clay);
+    left: 60%;
+  }
+  .spectrum-labels {
+    display: flex; justify-content: space-between;
+    font-size: 0.72rem; color: var(--stone); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .spectrum-highlight {
+    text-align: center; margin-top: 0.5rem;
+    font-size: 0.72rem; color: var(--clay); letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .manifesto {
+    border-left: 2px solid var(--clay);
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+  }
+  .manifesto-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-style: italic; font-weight: 300;
+    line-height: 1.4; color: var(--bark); margin-bottom: 1rem;
+  }
+  .manifesto-desc { font-size: 0.9rem; color: var(--stone); line-height: 1.8; }
+
+  /* ── PERSONA ─────────────────────────────────── */
+  #persona { background: var(--cream); }
+  .persona-layout { display: grid; grid-template-columns: 300px 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+  .persona-card {
+    background: var(--warm);
+    border: 0.5px solid var(--fog);
+    padding: 2.5rem 2rem;
+  }
+  .persona-avatar {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--clay), var(--earth));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--cream);
+    margin-bottom: 1.25rem;
+  }
+  .persona-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; margin-bottom: 0.25rem;
+  }
+  .persona-role { font-size: 0.78rem; color: var(--stone); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .persona-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .ptag {
+    font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.3rem 0.75rem; border: 0.5px solid var(--stone); color: var(--earth);
+    border-radius: 2px;
+  }
+
+  .persona-insights { display: flex; flex-direction: column; gap: 1.5rem; }
+  .insight {
+    border-bottom: 0.5px solid var(--fog); padding-bottom: 1.5rem;
+  }
+  .insight:last-child { border-bottom: none; padding-bottom: 0; }
+  .insight-label {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 0.5rem;
+  }
+  .insight-text { font-size: 0.95rem; color: var(--bark); line-height: 1.7; }
+
+  /* ── SWOT ────────────────────────────────────── */
+  #swot { background: var(--bark); color: var(--cream); }
+  #swot .section-eyebrow { color: var(--clay); }
+  #swot .section-eyebrow::before { background: var(--clay); }
+  #swot .section-title { color: var(--cream); }
+  #swot .section-title em { color: var(--clay); }
+
+  .swot-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; margin-top: 3.5rem;
+    background: rgba(255,255,255,0.06);
+  }
+  .swot-quad {
+    padding: 2.5rem 2rem;
+    background: var(--bark);
+    transition: background 0.25s;
+  }
+  .swot-quad:hover { background: rgba(255,255,255,0.04); }
+  .swot-quad-tag {
+    display: inline-block;
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.3rem 0.75rem; margin-bottom: 1.25rem;
+    border-radius: 2px;
+  }
+  .tag-s { background: rgba(92,107,74,0.3); color: #9DB88A; }
+  .tag-w { background: rgba(196,149,106,0.2); color: var(--clay); }
+  .tag-o { background: rgba(92,107,74,0.3); color: #9DB88A; }
+  .tag-t { background: rgba(196,100,80,0.2); color: #D4806A; }
+  .swot-quad-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; margin-bottom: 1rem; color: var(--cream);
+  }
+  .swot-items { list-style: none; }
+  .swot-items li {
+    font-size: 0.88rem; color: rgba(245,240,232,0.7); line-height: 1.6;
+    padding: 0.5rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    display: flex; gap: 0.75rem;
+  }
+  .swot-items li::before { content: '—'; color: var(--clay); flex-shrink: 0; }
+  .swot-items li:last-child { border-bottom: none; }
+
+  /* ── RASTREABILIDADE ─────────────────────────── */
+  #trace { background: var(--linen); }
+  .trace-flow {
+    display: flex; align-items: center; gap: 0;
+    margin-top: 3rem; overflow-x: auto;
+  }
+  .trace-step {
+    flex: 1; min-width: 130px;
+    text-align: center; padding: 1.5rem 1rem;
+    background: var(--cream);
+    border: 0.5px solid var(--fog);
+    position: relative;
+  }
+  .trace-step:not(:last-child)::after {
+    content: '→';
+    position: absolute; right: -12px; top: 50%; transform: translateY(-50%);
+    color: var(--clay); font-size: 1rem; z-index: 1;
+  }
+  .trace-icon {
+    font-size: 1.5rem; margin-bottom: 0.5rem;
+    display: block;
+  }
+  .trace-label {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 0.25rem;
+  }
+  .trace-desc { font-size: 0.78rem; color: var(--earth); line-height: 1.5; }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  footer {
+    background: var(--bark); color: rgba(245,240,232,0.5);
+    padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; letter-spacing: 0.06em;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--cream);
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-title   { animation-delay: 0.25s; }
+  .hero-subtitle{ animation-delay: 0.4s; }
+  .hero-cta     { animation-delay: 0.55s; }
+
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-visual { min-height: 320px; }
+    .hero-text { padding: 4rem 2rem; }
+    section { padding: 4rem 2rem; }
+    .attr-grid { grid-template-columns: 1fr 1fr; }
+    .pos-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .persona-layout { grid-template-columns: 1fr; }
+    .swot-grid { grid-template-columns: 1fr; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Eco-Heritage</a>
+  <ul class="nav-links">
+    <li><a href="#atributos">Coleção</a></li>
+    <li><a href="#posicionamento">Posicionamento</a></li>
+    <li><a href="#persona">Persona</a></li>
+
+    <li><a href="#trace">Rastreabilidade</a></li>
+  </ul>
+  <a href="#trace" class="nav-badge">Conheça a origem</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Nova Coleção · 2025</div>
+    <h1 class="hero-title">
+      Elegância<br>
+      <em>atemporal</em><br>
+      com consciência.
+    </h1>
+    <p class="hero-subtitle">
+      Eco-Heritage é a fusão entre a alfaiataria clássica e os materiais do futuro — fibras de cânhamo, algodão orgânico e tingimento natural, com rastreabilidade completa de produção.
+    </p>
+    <a href="#atributos" class="hero-cta">
+      Descobrir a coleção
+      <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-fabric">
+      <div class="hero-tag">
+        <div class="hero-tag-brand">Eco-Heritage</div>
+        <div class="hero-tag-desc">Coleção Sustentável · 2025</div>
+        <div class="qr-block">
+          <div class="qr-icon">
+            <div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div>
+            <div class="qr-cell dark"></div><div class="qr-cell"></div><div class="qr-cell dark"></div>
+            <div class="qr-cell dark"></div><div class="qr-cell dark"></div><div class="qr-cell dark"></div>
+          </div>
+          <div class="qr-text">Escaneie para ver<br>a origem desta peça</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATRIBUTOS DO PRODUTO -->
+<section id="atributos">
+  <div class="section-eyebrow">O produto</div>
+  <h2 class="section-title">O que torna<br><em>Eco-Heritage</em> única</h2>
+
+  <div class="attr-grid">
+    <div class="attr-card">
+      <div class="attr-num">01</div>
+      <div class="attr-label">Conceito</div>
+      <div class="attr-value">Alfaiataria clássica encontra materiais sustentáveis modernos — design que resiste ao tempo.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-num">02</div>
+      <div class="attr-label">Materiais</div>
+      <div class="attr-value">Fibra de cânhamo, algodão orgânico certificado e tingimento 100% natural, sem químicos agressivos.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-num">03</div>
+      <div class="attr-label">Estética</div>
+      <div class="attr-value">Cores terrosas, cortes minimalistas e acabamento de alta costura — beleza que não grita.</div>
+    </div>
+    <div class="attr-card">
+      <div class="attr-num">04</div>
+      <div class="attr-label">Rastreabilidade</div>
+      <div class="attr-value">Cada peça traz um QR Code com a jornada completa: do produtor do algodão à costureira.</div>
+    </div>
+  </div>
+</section>
+
+<!-- POSICIONAMENTO -->
+<section id="posicionamento">
+  <div class="section-eyebrow">Posicionamento de mercado</div>
+  <div class="pos-layout">
+    <div>
+      <h2 class="section-title">Onde a<br><em>Eco-Heritage</em><br>se situa</h2>
+
+      <div class="spectrum">
+        <div class="spectrum-labels">
+          <span>Fast Fashion</span>
+          <span>Luxo Internacional</span>
+        </div>
+        <div class="spectrum-bar">
+          <div class="spectrum-marker"></div>
+        </div>
+        <div class="spectrum-highlight">▲ Premium-Acessível</div>
+      </div>
+
+      <p style="font-size:0.88rem; color:var(--stone); line-height:1.8; margin-top:1.5rem;">
+        Acima da produção em massa, abaixo das grifes inacessíveis. O segmento que a consumidora consciente procurava e não encontrava.
+      </p>
+    </div>
+
+    <div>
+      <div class="manifesto">
+        <div class="manifesto-quote">"Elegância atemporal com consciência ambiental."</div>
+        <p class="manifesto-desc">
+          Eco-Heritage não é apenas moda — é um manifesto contra o descarte rápido. Cada peça é concebida para durar, ser versátil e carregar uma história real: a de quem a produziu e de como foi feita.
+        </p>
+      </div>
+
+      <div style="margin-top:2rem; padding:1.5rem; background:var(--warm); border-left:2px solid var(--moss);">
+        <div class="section-eyebrow" style="margin-bottom:0.5rem;">Proposta de valor</div>
+        <p style="font-size:0.88rem; color:var(--bark); line-height:1.7;">
+          Preferir 2 peças duráveis e versáteis a 10 peças descartáveis. Comprar menos, usar mais, saber de onde vem.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA -->
+<section id="persona">
+  <div class="section-eyebrow">Para quem</div>
+  <h2 class="section-title">Conheça <em>Beatriz</em></h2>
+
+  <div class="persona-layout">
+    <div class="persona-card">
+      <div class="persona-avatar">B</div>
+      <div class="persona-name">Beatriz</div>
+      <div class="persona-role">Arquiteta · 32 anos · São Paulo</div>
+      <p style="font-size:0.85rem; color:var(--stone); line-height:1.7; margin-top:1rem;">
+        Urbana, consumidora consciente, usa redes sociais para referências de design e arte — não para tendências passageiras.
+      </p>
+      <div class="persona-tags">
+        <span class="ptag">Consumo consciente</span>
+        <span class="ptag">Design</span>
+        <span class="ptag">Sustentabilidade</span>
+        <span class="ptag">Qualidade &gt; quantidade</span>
+        <span class="ptag">Rastreabilidade</span>
+      </div>
+    </div>
+
+    <div class="persona-insights">
+      <div class="insight">
+        <div class="insight-label">Comportamento de compra</div>
+        <div class="insight-text">Prefere comprar 2 peças duráveis e versáteis a 10 peças baratas que descarta em meses. Pesquisa a origem dos produtos antes de decidir.</div>
+      </div>
+      <div class="insight">
+        <div class="insight-label">Uso de redes sociais</div>
+        <div class="insight-text">Busca referências de design e arte — não tendências passageiras. Pinterest, Instagram e newsletters especializadas são seus canais de descoberta.</div>
+      </div>
+      <div class="insight">
+        <div class="insight-label">Maior frustração</div>
+        <div class="insight-text">"Me sinto frustrada quando não conheço a origem do que vesto." Quer transparência real, não discurso vazio de sustentabilidade.</div>
+      </div>
+      <div class="insight">
+        <div class="insight-label">Por que escolhe Eco-Heritage</div>
+        <div class="insight-text">Encontra aqui o único segmento onde estética de alta costura, rastreabilidade real e preço premium-acessível coexistem. Não é só uma compra — é um posicionamento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- RASTREABILIDADE -->
+<section id="trace">
+  <div class="section-eyebrow">Transparência radical</div>
+  <h2 class="section-title">A jornada de<br>cada <em>peça</em></h2>
+  <p style="font-size:0.95rem; color:var(--stone); max-width:560px; margin-bottom:3rem; line-height:1.8;">
+    O QR Code na etiqueta não é um recurso tecnológico — é a materialização do nosso compromisso. Escaneie e veja cada mão que tocou a sua peça.
+  </p>
+
+  <div class="trace-flow">
+    <div class="trace-step">
+      <span class="trace-icon">🌱</span>
+      <div class="trace-label">Origem</div>
+      <div class="trace-desc">Produtor do algodão orgânico certificado</div>
+    </div>
+    <div class="trace-step">
+      <span class="trace-icon">🌿</span>
+      <div class="trace-label">Fibra</div>
+      <div class="trace-desc">Processamento de cânhamo e tingimento natural</div>
+    </div>
+    <div class="trace-step">
+      <span class="trace-icon">🧵</span>
+      <div class="trace-label">Tecelagem</div>
+      <div class="trace-desc">Fiação artesanal em ateliê parceiro</div>
+    </div>
+    <div class="trace-step">
+      <span class="trace-icon">✂️</span>
+      <div class="trace-label">Costura</div>
+      <div class="trace-desc">Costureira identificada por nome e região</div>
+    </div>
+    <div class="trace-step">
+      <span class="trace-icon">📦</span>
+      <div class="trace-label">Embalagem</div>
+      <div class="trace-desc">Packaging 100% reciclável e sem plástico</div>
+    </div>
+    <div class="trace-step">
+      <span class="trace-icon">🤝</span>
+      <div class="trace-label">Você</div>
+      <div class="trace-desc">Cada compra sustenta toda essa cadeia</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Eco-Heritage</div>
+    <div style="margin-top:0.5rem;">Plano de Comunicação Integrada de Marketing · 2025</div>
+  </div>
+  <div style="text-align:right;">
+    <div>"Elegância atemporal com consciência ambiental."</div>
+    <div style="margin-top:0.25rem; font-size:0.7rem;">Premium-Acessível · Sustentável · Rastreável</div>
+  </div>
+</footer>
+
+</body>
+</html>
